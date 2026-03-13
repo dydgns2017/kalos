@@ -53,7 +53,7 @@ def run_plotting_pipeline(cfg: KaLOSProjectConfig):
     
     # TIER 1: Alpha Distribution (Always enabled by default, gated by plot setting)
     s = cfg.plotting.alpha_distribution
-    if s.enabled or cfg.plotting.plot_all:
+    if s.enabled if s.enabled is not None else cfg.plotting.plot_all:
         theme_manager.apply(
             theme_name=s.theme or cfg.plotting.theme,
             font_family=s.font_family or cfg.plotting.font_family,
@@ -65,7 +65,7 @@ def run_plotting_pipeline(cfg: KaLOSProjectConfig):
 
     # TIER 2: Collaboration Heatmap (Mean and Global)
     s = cfg.plotting.collaboration_heatmap
-    if cfg.collaboration_clusters and (s.enabled or cfg.plotting.plot_all):
+    if cfg.collaboration_clusters and (s.enabled if s.enabled is not None else cfg.plotting.plot_all):
         theme_manager.apply(
             theme_name=s.theme or cfg.plotting.theme,
             font_family=s.font_family or cfg.plotting.font_family,
@@ -81,7 +81,7 @@ def run_plotting_pipeline(cfg: KaLOSProjectConfig):
 
     # TIER 3: Localization Sensitivity (LSA)
     s = cfg.plotting.localization_sensitivity
-    if cfg.localization_sensitivity_thresholds and (s.enabled or cfg.plotting.plot_all):
+    if cfg.localization_sensitivity_thresholds and (s.enabled if s.enabled is not None else cfg.plotting.plot_all):
         theme_manager.apply(
             theme_name=s.theme or cfg.plotting.theme,
             font_family=s.font_family or cfg.plotting.font_family,
@@ -97,7 +97,7 @@ def run_plotting_pipeline(cfg: KaLOSProjectConfig):
 
     # TIER 4: Annotator Vitality
     s = cfg.plotting.annotator_vitality
-    if cfg.calculate_vitality and (s.enabled or cfg.plotting.plot_all):
+    if cfg.calculate_vitality and (s.enabled if s.enabled is not None else cfg.plotting.plot_all):
         theme_manager.apply(
             theme_name=s.theme or cfg.plotting.theme,
             font_family=s.font_family or cfg.plotting.font_family,
@@ -109,7 +109,7 @@ def run_plotting_pipeline(cfg: KaLOSProjectConfig):
     
     # TIER 5: Class Difficulty
     s = cfg.plotting.class_difficulty
-    if cfg.calculate_difficulty and (s.enabled or cfg.plotting.plot_all):
+    if cfg.calculate_difficulty and (s.enabled if s.enabled is not None else cfg.plotting.plot_all):
         theme_manager.apply(
             theme_name=s.theme or cfg.plotting.theme,
             font_family=s.font_family or cfg.plotting.font_family,

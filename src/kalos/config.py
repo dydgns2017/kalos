@@ -11,7 +11,7 @@ from jsonargparse.typing import Path_fr, Path_dw, Path_fc
 @dataclass
 class PlotSettings:
     """Granular settings for a specific diagnostic plot."""
-    enabled: bool = False
+    enabled: bool = None
     output_path: Optional[Path_dw] = None
     font_scale: Optional[float] = None
     font_family: Optional[str] = None

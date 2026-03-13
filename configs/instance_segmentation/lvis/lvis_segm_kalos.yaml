@@ -25,3 +25,5 @@ cfg:
     output_folder: /home/david/Code/kalos/results/instance_segmentation/lvis
     font_scale: 1.5
     plot_format: png
+    class_difficulty:
+      enabled: false
