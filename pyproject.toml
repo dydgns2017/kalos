@@ -1,6 +1,6 @@
 [project]
 name = "kalos"
-version = "0.7.1"
+version = "0.7.2"
 authors = [
   { name="David Tschirschwitz", email="david.tschirschwitz@uni.weimar.de" },
 ]
@@ -36,3 +36,6 @@ kalos = "kalos.cli:main"
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+[project.urls]
+Github = "https://github.com/Madave94/kalos"
