@@ -1,5 +1,5 @@
 cfg:
-  annotation_file: /home/david/Code/kalos/datasets/vindr_cxr_standardized_train_val.json
+  annotation_file: ../../../datasets/vindr_cxr_standardized_train_val.json
   task: bbox
   annotation_type: coco-json
   method: greedy
@@ -16,11 +16,11 @@ cfg:
     - 0.25
     - 0.375
     - 0.5
-  output_results: /home/david/Code/kalos/results/object_detection/vindrcxr
+  output_results: ../../../results/object_detection/vindrcxr
   plotting:
     theme: paper
     font_family: sans-serif
     plot_all: true
-    output_folder: /home/david/Code/kalos/results/object_detection/vindrcxr
+    output_folder: ../../../results/object_detection/vindrcxr
     font_scale: 1.5
     plot_format: png

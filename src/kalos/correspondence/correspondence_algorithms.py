@@ -15,6 +15,7 @@ from typing import Set, Optional
 
 import itertools
 from typing import Dict, List, Any, Tuple, Callable
+from pathlib import Path
 
 from kalos.iaa.similarity_functions import SIMILARITY_FUNCTIONS
 import pylibmgm
@@ -24,12 +25,12 @@ from tqdm import tqdm
 logger = logging.getLogger(__name__)
 
 # --- 1. Annotation Loader ---
-def load_annotations(file_path: str) -> Dict[str, Any]:
+def load_annotations(file_path: Path) -> Dict[str, Any]:
     """
     Loads a COCO-style JSON annotation file.
 
     Args:
-        file_path (str): The path to the JSON annotation file.
+        file_path (Path): The path to the JSON annotation file.
 
     Returns:
         Dict[str, Any]: The loaded annotation data as a Python dictionary.

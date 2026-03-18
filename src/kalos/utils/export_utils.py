@@ -10,11 +10,12 @@ import logging
 import os
 import numpy as np
 from typing import Dict, List, Any, Optional
+from pathlib import Path
 
 logger = logging.getLogger(__name__)
 
 def export_iaa_results(
-    output_dir: str,
+    output_dir: Path,
     mean_alpha: float,
     global_alpha: float,
     mean_vitalities: Dict[str, List[float]],
@@ -36,7 +37,7 @@ def export_iaa_results(
     Exports IAA calculation results to CSV and JSON files, including a checkpoint for plotting.
 
     Args:
-        output_dir (str): Directory where the output files will be saved.
+        output_dir (Path): Directory where the output files will be saved.
         mean_alpha (float): The primary Mean Image K-Alpha score.
         global_alpha (float): The secondary Global Dataset K-Alpha score.
         mean_vitalities (Dict[str, List[float]]): Annotator vitality data (Mean impact).

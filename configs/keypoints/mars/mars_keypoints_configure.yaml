@@ -1,10 +1,10 @@
 cfg:
-  disagreement_files: ["/home/david/Code/kalos/results/keypoints/mars/mars_keypoints_mpjpe_do_de.json"]
+  disagreement_files: ["../../../results/keypoints/mars/mars_keypoints_mpjpe_do_de.json"]
   log_level: INFO
   plot_format: pdf
   plotting:
     theme: paper
     font_family: sans-serif
-    output_path: /home/david/Code/kalos//results/keypoints/mars
+    output_path: ../../..//results/keypoints/mars
     font_scale: 1.9
 

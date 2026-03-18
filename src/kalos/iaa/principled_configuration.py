@@ -11,6 +11,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import gaussian_kde
 from typing import List, Optional, Dict
+from pathlib import Path
 
 from kalos.utils.theme_manager import theme_manager, PROJECT_COLORS_HEX
 from kalos.utils.logging import setup_kalos_logging
@@ -103,7 +104,7 @@ def plot_disagreement_distributions(
     d_e: np.ndarray, 
     metric_name: str, 
     ks_statistic: float, 
-    output_dir: str = "plots", 
+    output_dir: Path,
     tau_star: Optional[float] = None,
     file_format: str = "pdf"
 ):
@@ -115,7 +116,7 @@ def plot_disagreement_distributions(
         d_e (np.ndarray): Expected distances.
         metric_name (str): Name of the similarity metric used.
         ks_statistic (float): Calculated KS score for reporting.
-        output_dir (str): Directory to save the resulting plot.
+        output_dir (Path): Directory to save the resulting plot.
         tau_star (float, optional): Optimal threshold to indicate with a vertical line.
         file_format (str, optional): The file format for saving (e.g., 'png', 'pdf'). Defaults to 'pdf'.
     """
@@ -187,23 +188,20 @@ def derive_principled_configuration(cfg: PrincipledConfigurationConfig):
         overrides=cfg.plotting.color_overrides
     )
     
-    output_dir = str(cfg.plotting.output_path) if cfg.plotting.output_path else "plots"
+    output_dir = cfg.plotting.output_path if cfg.plotting.output_path else Path("plots")
     
     results = {}
     tau_results = {}
 
     for file_path in cfg.disagreement_files:
-        file_path_str = str(file_path)
-        if not os.path.exists(file_path_str):
-            logger.warning(f"File not found, skipping: {file_path_str}")
+        file_path = Path(file_path)
+        if file_path.suffix != '.json':
+            logger.warning(f"File is not a JSON file, skipping: {file_path}")
             continue
-        if not file_path_str.endswith('.json'):
-            logger.warning(f"File is not a JSON file, skipping: {file_path_str}")
-            continue
-            
+
         try:
-            metric_name = os.path.splitext(os.path.basename(file_path_str))[0].replace('_disagreements', '')
-            with open(file_path_str, 'r') as f:
+            metric_name = file_path.stem.replace('_disagreements', '')
+            with open(file_path, 'r') as f:
                 data = json.load(f)
             
             d_o = np.array([x for x in data['d_o'] if x is not None])
@@ -211,7 +209,7 @@ def derive_principled_configuration(cfg: PrincipledConfigurationConfig):
 
             # Validation: Ensure all distances are in [0, 1]
             if np.any(d_o < 0.0) or np.any(d_o > 1.0) or np.any(d_e < 0.0) or np.any(d_e > 1.0):
-                logger.error(f"Validation failed for {file_path_str}: Disagreement values must be in range [0.0, 1.0].")
+                logger.error(f"Validation failed for {file_path}: Disagreement values must be in range [0.0, 1.0].")
                 continue
 
             ks_statistic = calculate_ks_statistic(d_o, d_e)
@@ -224,7 +222,7 @@ def derive_principled_configuration(cfg: PrincipledConfigurationConfig):
                 d_o, d_e, metric_name, ks_statistic, output_dir, tau_star, cfg.plot_format
             )
         except (ValueError, KeyError, json.JSONDecodeError) as e:
-            logger.error(f"Skipping {file_path_str} due to error: {e}")
+            logger.error(f"Skipping {file_path} due to error: {e}")
             continue
 
     if not results:

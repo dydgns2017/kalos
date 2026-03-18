@@ -7,6 +7,7 @@ all three tiers of agreement, and exporting the final serialized results.
 import logging
 from typing import Dict, List, Any, Optional
 import numpy as np
+from pathlib import Path
 
 from kalos.correspondence import correspondence_algorithms
 from kalos.iaa.core import calculate_iaa
@@ -17,7 +18,7 @@ from kalos.utils.export_utils import export_iaa_results
 logger = logging.getLogger(__name__)
 
 # --- 1. Data Layer Orchestration ---
-def load_and_preprocess_data(annotation_file: str, annotation_type: str):
+def load_and_preprocess_data(annotation_file: Path, annotation_type: str):
     """Loads and preprocesses data based on annotation type. Decoupled from Config object."""
     if annotation_type == 'coco-json':
         coco_data = correspondence_algorithms.load_annotations(annotation_file)
@@ -70,7 +71,7 @@ def run_kalos_pipeline(cfg: KaLOSProjectConfig):
     setup_kalos_logging(cfg.log_level)
     
     # Load and preprocess data
-    data_package = load_and_preprocess_data(str(cfg.annotation_file), cfg.annotation_type)
+    data_package = load_and_preprocess_data(cfg.annotation_file, cfg.annotation_type)
     processed_data = data_package["processed_data"]
     categories = data_package["categories"]
     all_raters = data_package.get("all_raters")
@@ -237,7 +238,7 @@ def run_kalos_pipeline(cfg: KaLOSProjectConfig):
     # --- 5. Export Results ---
     if cfg.output_results:
         export_iaa_results(
-            output_dir=str(cfg.output_results),
+            output_dir=cfg.output_results,
             mean_alpha=mean_alpha,
             global_alpha=global_alpha,
             mean_vitalities=mean_vitalities,

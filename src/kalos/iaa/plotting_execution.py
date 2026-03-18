@@ -34,7 +34,7 @@ def run_plotting_pipeline(cfg: KaLOSProjectConfig):
         raise ValueError("Field 'output_results' is required to locate the results checkpoint for plotting.")
     
     # 1. Load Checkpoint
-    checkpoint_path = os.path.join(str(cfg.output_results), "kalos_checkpoint.json")
+    checkpoint_path = os.path.join(cfg.output_results, "kalos_checkpoint.json")
     if not os.path.exists(checkpoint_path):
         raise FileNotFoundError(f"Checkpoint not found at: {checkpoint_path}. Run 'execute' first.")
     
@@ -46,7 +46,7 @@ def run_plotting_pipeline(cfg: KaLOSProjectConfig):
     metadata = checkpoint_data["metadata"]
     all_raters = metadata["all_raters"]
     plot_fmt = cfg.plotting.plot_format
-    output_folder = cfg.plotting.output_folder or str(cfg.output_results)
+    output_folder = cfg.plotting.output_folder or cfg.output_results
     os.makedirs(output_folder, exist_ok=True)
 
     # 2. Diagnostic Plotting Tiers

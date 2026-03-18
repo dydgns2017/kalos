@@ -1,5 +1,5 @@
 cfg:
-  annotation_file: /home/david/Code/kalos/datasets/standardized_lvis_all.json
+  annotation_file: ../../../datasets/standardized_lvis_all.json
   task: segm
   annotation_type: coco-json
   method: greedy
@@ -17,13 +17,13 @@ cfg:
     - 0.5
     - 0.6
     - 0.7
-  output_results: /home/david/Code/kalos/results/instance_segmentation/lvis
+  output_results: ../../../results/instance_segmentation/lvis
   plotting:
     theme: paper
     font_family: serif
     font_name: Times New Roman
     plot_all: true
-    output_folder: /home/david/Code/kalos/results/instance_segmentation/lvis
+    output_folder: ../../../results/instance_segmentation/lvis
     font_scale: 1.5
     plot_format: pdf
     class_difficulty:

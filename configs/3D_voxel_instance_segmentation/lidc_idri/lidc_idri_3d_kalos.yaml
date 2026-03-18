@@ -1,5 +1,5 @@
 cfg:
-  annotation_file: /home/david/Code/kalos/datasets/lidc_idri_annotations_with_size.json
+  annotation_file: ../../../datasets/lidc_idri_annotations_with_size.json
   task: 3D_VIS
   annotation_type: lidc-idri-json
   method: greedy
@@ -15,11 +15,11 @@ cfg:
     - 0.5
     - 0.6
     - 0.8
-  output_results: /home/david/Code/kalos/results/3D_voxel_instance_segmentation/lidc_idri
+  output_results: ../../../results/3D_voxel_instance_segmentation/lidc_idri
   plotting:
     theme: paper
     font_family: sans-serif
     plot_all: true
-    output_folder: /home/david/Code/kalos/results/3D_voxel_instance_segmentation/lidc_idri
+    output_folder: ../../../results/3D_voxel_instance_segmentation/lidc_idri
     font_scale: 1.7
     plot_format: pdf

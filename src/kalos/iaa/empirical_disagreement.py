@@ -158,7 +158,7 @@ def calculate_empirical_disagreement(cfg: EmpiricalDisagreementConfig):
         logger.error(f"Invalid similarity function '{cfg.similarity_func}'. Available: {list(SIMILARITY_FUNCTIONS.keys())}")
         return
 
-    coco_data = load_annotations(str(cfg.annotation_file))
+    coco_data = load_annotations(cfg.annotation_file)
     processed_data = preprocess_data(coco_data)
 
     if cfg.only_with_annotations:
@@ -172,7 +172,7 @@ def calculate_empirical_disagreement(cfg: EmpiricalDisagreementConfig):
     logger.info(f"Calculating empirical disagreement using similarity function: '{cfg.similarity_func}'")
     results = calculate_do_de(processed_data, similarity_function)
 
-    with open(str(cfg.output_file), 'w') as f:
+    with open(cfg.output_file, 'w') as f:
         json.dump(results, f, indent=4)
 
     logger.info(f"Successfully calculated D_o and D_e.")

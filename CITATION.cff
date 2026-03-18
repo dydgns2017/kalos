@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Tschirschwitz"
+  given-names: "David"
+- family-names: "Rodehorst"
+  given-names: "Volker"
+title: "KαLOS finds Consensus: A Meta-Algorithm for Evaluating Inter-Annotator Agreement in Complex Vision Tasks"
+version: 0.7.1
+date-released: 2026-03-18
+url: "https://github.com/Madave94/kalos"
+preferred-citation:
+  type: conference-paper
+  authors:
+  - family-names: "Tschirschwitz"
+    given-names: "David"
+  - family-names: "Rodehorst"
+    given-names: "Volker"
+  title: "KαLOS finds Consensus: A Meta-Algorithm for Evaluating Inter-Annotator Agreement in Complex Vision Tasks"
+  collection-title: "Proceedings of the IEEE/CVF Computer Vision and Pattern Recognition Conference (CVPR)"
+  year: 2026

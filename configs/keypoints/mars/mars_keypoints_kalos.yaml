@@ -1,5 +1,5 @@
 cfg:
-  annotation_file: /home/david/Code/kalos/datasets/MARS_coco_front.json
+  annotation_file: ../../../datasets/MARS_coco_front.json
   task: keypoints
   annotation_type: coco-json
   method: greedy
@@ -16,11 +16,11 @@ cfg:
     - 0.92
     - 0.95
     - 0.98
-  output_results: /home/david/Code/kalos/results/keypoints/mars
+  output_results: ../../../results/keypoints/mars
   plotting:
     theme: paper
     font_family: sans-serif
     plot_all: true
-    output_folder: /home/david/Code/kalos/results/keypoints/mars
+    output_folder: ../../../results/keypoints/mars
     font_scale: 1.7
     plot_format: pdf
