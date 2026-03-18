@@ -6,6 +6,6 @@ cfg:
     theme: paper
     font_family: sans-serif
     output_path: /home/david/Code/kalos/results/instance_segmentation/lvis
-    font_scale: 1.5
+    font_scale: 2.2
 
 

@@ -15,6 +15,7 @@ class PlotSettings:
     output_path: Optional[Path_dw] = None
     font_scale: Optional[float] = None
     font_family: Optional[str] = None
+    font_name: Optional[str] = None
     theme: Optional[str] = None
     color_overrides: Optional[Dict[str, str]] = None
 
@@ -28,6 +29,7 @@ class PlottingConfig:
     # Global Defaults
     font_scale: float = 1.0
     font_family: str = "serif"
+    font_name: Optional[str] = None
     theme: str = "paper"
     color_overrides: Optional[Dict[str, str]] = None
 

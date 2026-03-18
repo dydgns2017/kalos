@@ -21,5 +21,11 @@ cfg:
     font_family: sans-serif
     plot_all: true
     output_folder: /home/david/Code/kalos/results/instance_segmentation/texbig
-    font_scale: 1.5
-    plot_format: png
+    font_scale: 1.7
+    plot_format: pdf
+    alpha_distribution:
+      font_scale: 1.7
+    localization_sensitivity:
+      font_scale: 1.7
+    collaboration_heatmap:
+      font_scale: 1.4

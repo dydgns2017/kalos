@@ -34,7 +34,7 @@ class ThemeManager:
         # Initialize with 'paper' defaults
         self.apply("paper")
 
-    def apply(self, theme_name: str = "paper", font_family: str = "serif", font_scale: float = 1.0, overrides: Optional[Dict[str, str]] = None):
+    def apply(self, theme_name: str = "paper", font_family: str = "serif", font_name: Optional[str] = None, font_scale: float = 1.0, overrides: Optional[Dict[str, str]] = None):
         """Sets the global style and registers colormaps."""
         self.font_scale = font_scale
         
@@ -52,7 +52,11 @@ class ThemeManager:
             'ps.fonttype': 42
         })
         
-        if font_family == "serif":
+        if font_name:
+            family_key = f'font.{font_family}'
+            if family_key in plt.rcParams:
+                plt.rcParams[family_key] = [font_name] + list(plt.rcParams[family_key])
+        elif font_family == "serif":
             plt.rcParams['font.serif'] = ['Times New Roman', 'DejaVu Serif']
 
         # 3. Register Colormaps

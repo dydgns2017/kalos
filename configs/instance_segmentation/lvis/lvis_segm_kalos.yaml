@@ -20,10 +20,11 @@ cfg:
   output_results: /home/david/Code/kalos/results/instance_segmentation/lvis
   plotting:
     theme: paper
-    font_family: sans-serif
+    font_family: serif
+    font_name: Times New Roman
     plot_all: true
     output_folder: /home/david/Code/kalos/results/instance_segmentation/lvis
     font_scale: 1.5
-    plot_format: png
+    plot_format: pdf
     class_difficulty:
       enabled: false

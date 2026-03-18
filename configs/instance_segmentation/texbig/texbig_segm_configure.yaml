@@ -3,10 +3,10 @@ cfg:
                        "/home/david/Code/kalos/results/instance_segmentation/texbig/texbig_segm_giou_do_de.json",
                        "/home/david/Code/kalos/results/instance_segmentation/texbig/texbig_segm_centroid_do_de.json"]
   log_level: INFO
-  plot_format: png
+  plot_format: pdf
   plotting:
     theme: paper
     font_family: sans-serif
     output_path: /home/david/Code/kalos/results/instance_segmentation/texbig
-    font_scale: 1.5
+    font_scale: 1.9
 

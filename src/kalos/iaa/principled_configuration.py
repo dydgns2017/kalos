@@ -182,6 +182,7 @@ def derive_principled_configuration(cfg: PrincipledConfigurationConfig):
     theme_manager.apply(
         theme_name=cfg.plotting.theme or "paper",
         font_family=cfg.plotting.font_family or "serif",
+        font_name=cfg.plotting.font_name,
         font_scale=cfg.plotting.font_scale or 1.0,
         overrides=cfg.plotting.color_overrides
     )

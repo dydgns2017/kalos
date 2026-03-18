@@ -57,6 +57,7 @@ def run_plotting_pipeline(cfg: KaLOSProjectConfig):
         theme_manager.apply(
             theme_name=s.theme or cfg.plotting.theme,
             font_family=s.font_family or cfg.plotting.font_family,
+            font_name=s.font_name or cfg.plotting.font_name,
             font_scale=s.font_scale or cfg.plotting.font_scale,
             overrides=s.color_overrides or cfg.plotting.color_overrides
         )
@@ -69,6 +70,7 @@ def run_plotting_pipeline(cfg: KaLOSProjectConfig):
         theme_manager.apply(
             theme_name=s.theme or cfg.plotting.theme,
             font_family=s.font_family or cfg.plotting.font_family,
+            font_name=s.font_name or cfg.plotting.font_name,
             font_scale=s.font_scale or cfg.plotting.font_scale,
             overrides=s.color_overrides or cfg.plotting.color_overrides
         )
@@ -85,6 +87,7 @@ def run_plotting_pipeline(cfg: KaLOSProjectConfig):
         theme_manager.apply(
             theme_name=s.theme or cfg.plotting.theme,
             font_family=s.font_family or cfg.plotting.font_family,
+            font_name=s.font_name or cfg.plotting.font_name,
             font_scale=s.font_scale or cfg.plotting.font_scale,
             overrides=s.color_overrides or cfg.plotting.color_overrides
         )
@@ -101,6 +104,7 @@ def run_plotting_pipeline(cfg: KaLOSProjectConfig):
         theme_manager.apply(
             theme_name=s.theme or cfg.plotting.theme,
             font_family=s.font_family or cfg.plotting.font_family,
+            font_name=s.font_name or cfg.plotting.font_name,
             font_scale=s.font_scale or cfg.plotting.font_scale,
             overrides=s.color_overrides or cfg.plotting.color_overrides
         )
@@ -113,6 +117,7 @@ def run_plotting_pipeline(cfg: KaLOSProjectConfig):
         theme_manager.apply(
             theme_name=s.theme or cfg.plotting.theme,
             font_family=s.font_family or cfg.plotting.font_family,
+            font_name=s.font_name or cfg.plotting.font_name,
             font_scale=s.font_scale or cfg.plotting.font_scale,
             overrides=s.color_overrides or cfg.plotting.color_overrides
         )

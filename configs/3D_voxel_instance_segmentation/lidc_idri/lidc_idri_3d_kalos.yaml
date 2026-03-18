@@ -4,22 +4,22 @@ cfg:
   annotation_type: lidc-idri-json
   method: greedy
   threshold_func: 3D_IoU_similarity
-  cost_func: negative_score
+  cost_func: category_lenient
   similarity_threshold: 0.5
-  calculate_vitality: true
+  calculate_vitality: false
   calculate_difficulty: false
-  collaboration_clusters: true
+  collaboration_clusters: false
   localization_sensitivity_thresholds:
-    - 0.1
-    - 0.3
+    - 0.2
+    - 0.4
     - 0.5
-    - 0.7
-    - 0.9
+    - 0.6
+    - 0.8
   output_results: /home/david/Code/kalos/results/3D_voxel_instance_segmentation/lidc_idri
   plotting:
     theme: paper
     font_family: sans-serif
     plot_all: true
     output_folder: /home/david/Code/kalos/results/3D_voxel_instance_segmentation/lidc_idri
-    font_scale: 1.5
-    plot_format: png
+    font_scale: 1.7
+    plot_format: pdf
