@@ -28,6 +28,7 @@ pip install kalos
 
 <details>
 <summary>Editable install instructions (if you want to add another task)</summary>
+
 In case you have a task not yet covered by KαLOS, you will need to add a distance/similarity function 
 in `src/kalos/similarity_functions.py`. You are welcome to make a merge request to add this function
 to the repository after thorough testing.
@@ -75,14 +76,15 @@ KαLOS evaluation follows four steps. A general example looks like:
 You can move config folders together with datasets and results without breaking the pipeline.
 
 <details>
-<summary>Full Walkthrough: Hello World with TexBiG</summary>
+<summary>Full Walkthrough: Hello World with TexBiG</summary>  
+
 This example uses the TexBiG dataset to demonstrate how to derive the distance/similarity function and the configuration anchor,
-as well as run the main calculation and downstream analysis. These results are also shown in the CVPR paper Section 14.3.
+as well as run the main calculation and downstream analysis. These results are also shown in the CVPR paper Section 14.1.
 
 1. Download the formatted annotations [TexBiG](https://drive.google.com/file/d/1RKJ7EhmRRCKySp_kKpmMCLN_v9TrElRy/view?usp=sharing).
 2. Move them into the folder `datasets`, so that the relative paths work.
 3. Calculate expected and observed disagreements. To showcase how different distance/similarity functions are compared,
-calculating this for three different functions should be done:
+calculating this for three different functions:
 ```
     kalos calc-disagreement --config configs/instance_segmentation/texbig/texbig_segm_centroid_disagreement.yaml
     kalos calc-disagreement --config configs/instance_segmentation/texbig/texbig_segm_iou_disagreement.yaml
@@ -112,12 +114,14 @@ This creates the plot used in chapter 14.1 in the CVPR paper.
 
 <details>
 <summary>Run using CLI instead</summary>
+  
 Instead of `kalos`, you can also call `/src/kalos/cli.py`. The same entrypoint is used.
 </details>
 
 
 <details>
 <summary>API usage example</summary>
+  
 If you want to include KαLOS into an existing library, the core function to call is `calculate_iaa` in `src/kalos/core.py`.
 You will likely need to combine this with the preprocessing from `preprocess_data` in `src/kalos/correspondence/correspondence_algorithms.py`,
 which provides you information about the data structure you need to input for KαLOS.
@@ -142,6 +146,7 @@ Besides the regular information in your annotation, data should contain two addi
 
 <details>
 <summary>Show format example</summary>
+
 For the COCO-JSON format currently present in the code, data might look like:
 
 Annotations:
@@ -171,6 +176,7 @@ Images:
 
 <details>
 <summary>Extending to new tasks</summary>
+
 This is advanced functionality. It requires adding a new similarity function. You should install the repository in
 editable mode and look into the docstrings. Feel free to create an issue if you are stuck, and if you finish
 the task expansion, you are welcome to make a merge request.
